@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HaloPress-Live2D widget smoke test</title>
+	<link rel="stylesheet" href="../live2d-widget/widget.css">
+	<style>
+		body { background: #f0f2f5; color: #1d2327; font: 16px/1.6 sans-serif; margin: 0; padding: 40px; }
+		main { background: #fff; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, .08); max-width: 720px; padding: 28px; }
+		#test-result { font-weight: 700; }
+	</style>
+</head>
+<body>
+	<main>
+		<h1>HaloPress-Live2D 前端烟雾测试</h1>
+		<p>本页使用假的 Cubism API，不包含或加载任何模型、贴图及 Live2D 运行时。</p>
+		<p id="test-result">正在检查……</p>
+	</main>
+	<script>
+		window.Live2D = { init: function () {}, setGL: function () {} };
+		window.Live2DModelWebGL = {
+			loadModel: function () {
+				return {
+					getCanvasWidth: function () { return 2; },
+					getCanvasHeight: function () { return 2; },
+					setMatrix: function () {},
+					setTexture: function () {},
+					setParamFloat: function () {},
+					update: function () {},
+					draw: function () {},
+					isPremultipliedAlpha: function () { return true; }
+				};
+			}
+		};
+		window.HaloPressLive2DConfig = {
+			coreUrl: 'https://invalid.example/core.js',
+			modelUrl: 'data:application/json,%7B%22model%22%3A%22data%3Aapplication%2Foctet-stream%3Bbase64%2CAA%3D%3D%22%2C%22textures%22%3A%5B%5D%7D',
+			desktopEnabled: true,
+			mobileEnabled: true,
+			mobileBreakpoint: 768,
+			position: 'left',
+			size: 260,
+			horizontalOffset: 12,
+			bottomOffset: 12,
+			welcomeMessage: '烟雾测试通过，欢迎回来！',
+			idleMessages: ['测试空闲提示语'],
+			idleInterval: 20,
+			hitokotoEnabled: false,
+			hitokotoApiUrl: '',
+			draggable: true,
+			showToggleAfterQuit: true,
+			infoUrl: 'https://github.com/YumengOvO/HaloPress-Live2D',
+			storagePrefix: 'halopress-live2d-smoke-',
+			labels: { photo: '拍照', info: '项目信息', quit: '关闭', toggle: '显示 Live2D 看板娘' }
+		};
+	</script>
+	<script src="../live2d-widget/widget.js"></script>
+	<script>
+		window.setTimeout(function () {
+			var widget = document.getElementById('halopress-live2d');
+			var tools = document.querySelectorAll('.halopress-live2d-tool');
+			var passed = widget && widget.classList.contains('is-active') && tools.length === 3;
+			var result = document.getElementById('test-result');
+			result.textContent = passed ? '通过：挂件及三个启用的工具按钮已创建。' : '失败：挂件未按预期初始化。';
+			result.style.color = passed ? '#008a20' : '#d63638';
+		}, 800);
+	</script>
+</body>
+</html>

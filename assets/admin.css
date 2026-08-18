@@ -1,0 +1,31 @@
+.halopress-live2d-admin {
+	max-width: 980px;
+}
+
+.halopress-live2d-admin > .description {
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.halopress-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	margin: 16px 0;
+	padding: 4px 20px 12px;
+}
+
+.halopress-card h2 {
+	border-bottom: 1px solid #dcdcde;
+	margin: 0 -20px 8px;
+	padding: 14px 20px;
+}
+
+.halopress-card .form-table {
+	margin-top: 0;
+}
+
+.halopress-license-note {
+	border-left: 4px solid #2271b1;
+}
+

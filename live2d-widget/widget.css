@@ -1,0 +1,180 @@
+/* HaloPress-Live2D GPL-3.0 frontend styles. */
+:root {
+	--halopress-live2d-size: 300px;
+	--halopress-live2d-bottom: 0px;
+	--halopress-live2d-left: 0px;
+	--halopress-live2d-right: 0px;
+}
+
+#halopress-live2d,
+#halopress-live2d-toggle,
+#halopress-live2d * {
+	box-sizing: border-box;
+}
+
+#halopress-live2d {
+	bottom: var(--halopress-live2d-bottom);
+	height: var(--halopress-live2d-size);
+	line-height: 1.5;
+	opacity: 0;
+	position: fixed;
+	transform: translateY(24px);
+	transition: opacity 0.35s ease, transform 0.35s ease;
+	width: var(--halopress-live2d-size);
+	z-index: 99999;
+}
+
+#halopress-live2d.halopress-live2d-side-left {
+	left: var(--halopress-live2d-left);
+}
+
+#halopress-live2d.halopress-live2d-side-right {
+	right: var(--halopress-live2d-right);
+}
+
+#halopress-live2d.is-active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#halopress-live2d.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(24px);
+}
+
+#halopress-live2d-canvas {
+	display: block;
+	height: 100%;
+	outline: 0;
+	touch-action: none;
+	width: 100%;
+}
+
+#halopress-live2d-canvas.is-draggable {
+	cursor: grab;
+}
+
+#halopress-live2d-canvas.is-draggable:active {
+	cursor: grabbing;
+}
+
+#halopress-live2d-tips {
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid rgba(30, 35, 45, 0.15);
+	border-radius: 10px;
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+	color: #2c3338;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	font-size: 14px;
+	left: 50%;
+	line-height: 1.55;
+	max-height: 92px;
+	overflow: hidden;
+	opacity: 0;
+	padding: 10px 12px;
+	pointer-events: none;
+	position: absolute;
+	top: 4px;
+	transform: translate(-50%, -8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	width: min(250px, calc(100% - 16px));
+	z-index: 2;
+}
+
+#halopress-live2d-tips.is-visible {
+	opacity: 1;
+	transform: translate(-50%, 0);
+}
+
+#halopress-live2d-toolbar {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	opacity: 0;
+	position: absolute;
+	top: 38%;
+	transition: opacity 0.2s ease;
+	z-index: 3;
+}
+
+.halopress-live2d-side-left #halopress-live2d-toolbar {
+	right: 4px;
+}
+
+.halopress-live2d-side-right #halopress-live2d-toolbar {
+	left: 4px;
+}
+
+#halopress-live2d:hover #halopress-live2d-toolbar,
+#halopress-live2d:focus-within #halopress-live2d-toolbar {
+	opacity: 1;
+}
+
+.halopress-live2d-tool,
+#halopress-live2d-toggle {
+	align-items: center;
+	appearance: none;
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid rgba(30, 35, 45, 0.16);
+	border-radius: 50%;
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+	color: #2c3338;
+	cursor: pointer;
+	display: inline-flex;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	font-size: 15px;
+	font-weight: 600;
+	height: 31px;
+	justify-content: center;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+	width: 31px;
+}
+
+.halopress-live2d-tool:hover,
+.halopress-live2d-tool:focus-visible,
+#halopress-live2d-toggle:hover,
+#halopress-live2d-toggle:focus-visible {
+	background: #2271b1;
+	color: #fff;
+	outline: 2px solid transparent;
+	transform: translateY(-1px);
+}
+
+#halopress-live2d-toggle {
+	bottom: calc(var(--halopress-live2d-bottom) + 18px);
+	display: none;
+	height: 42px;
+	position: fixed;
+	width: 42px;
+	z-index: 99999;
+}
+
+#halopress-live2d-toggle.halopress-live2d-side-left {
+	left: max(8px, var(--halopress-live2d-left));
+}
+
+#halopress-live2d-toggle.halopress-live2d-side-right {
+	right: max(8px, var(--halopress-live2d-right));
+}
+
+#halopress-live2d-toggle.is-visible {
+	display: inline-flex;
+}
+
+#halopress-live2d.has-error #halopress-live2d-canvas {
+	opacity: 0.25;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#halopress-live2d,
+	#halopress-live2d-tips,
+	.halopress-live2d-tool,
+	#halopress-live2d-toggle {
+		transition: none;
+	}
+}
+

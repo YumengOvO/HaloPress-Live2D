@@ -1,0 +1,21 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: node --check live2d-widget/widget.js
+      - name: Check PHP syntax
+        run: find . -type f -name '*.php' -not -path './release/*' -print0 | xargs -0 -n1 php -l
+      - name: Verify forbidden release assets are absent
+        run: |
+          test ! -e dist/live2d.min.js
+          test ! -d src/CubismSdkForWeb-5-r.4
+          ! find . -type f \( -name '*.moc' -o -name '*.moc3' -o -name '*.model3.json' -o -name '*.motion3.json' \) -print -quit | grep -q .
+

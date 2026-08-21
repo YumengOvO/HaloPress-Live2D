@@ -229,6 +229,15 @@ final class HaloPress_Live2D_Admin {
 
 			<div class="halopress-card halopress-license-note">
 				<h2><?php esc_html_e( '许可证提醒', 'halopress-live2d' ); ?></h2>
+				<div class="halopress-live2d-brand">
+					<a href="https://www.live2d.com/zh-CHS/sdk/guidelines/" target="_blank" rel="noopener noreferrer">
+						<img class="halopress-live2d-brand__logo" src="<?php echo esc_url( HALOPRESS_LIVE2D_URL . 'assets/images/live2d-logo.png' ); ?>" alt="<?php esc_attr_e( 'Live2D', 'halopress-live2d' ); ?>" width="240" height="62">
+					</a>
+					<p>
+						<strong><?php esc_html_e( 'Powered by Live2D.', 'halopress-live2d' ); ?></strong><br>
+						<?php esc_html_e( '本插件支持使用 Live2D® Cubism 2 技术制作的模型。Live2D® 及其标志是 Live2D Inc. 的注册商标；本插件不是 Live2D Inc. 的官方产品，也未获得其认证或推荐。', 'halopress-live2d' ); ?>
+					</p>
+				</div>
 				<p><?php esc_html_e( 'HaloPress-Live2D 本体采用 GPL-3.0。模型、贴图、动作及 Cubism 运行时不属于本插件，使用者必须分别遵守其权利人的许可条款。', 'halopress-live2d' ); ?></p>
 				<p><a href="https://github.com/YumengOvO/HaloPress-Live2D" target="_blank" rel="noopener noreferrer"><?php esc_html_e( '查看项目与完整许可证说明', 'halopress-live2d' ); ?></a></p>
 			</div>

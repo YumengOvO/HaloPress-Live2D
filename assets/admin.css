@@ -29,3 +29,34 @@
 	border-left: 4px solid #2271b1;
 }
 
+.halopress-live2d-brand {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	padding: 12px 0;
+}
+
+.halopress-live2d-brand > a {
+	flex: 0 0 auto;
+	display: block;
+	padding: 10px;
+}
+
+.halopress-live2d-brand__logo {
+	display: block;
+	width: 240px;
+	max-width: 100%;
+	height: auto;
+}
+
+.halopress-live2d-brand p {
+	margin: 0;
+}
+
+@media screen and (max-width: 782px) {
+	.halopress-live2d-brand {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 4px;
+	}
+}

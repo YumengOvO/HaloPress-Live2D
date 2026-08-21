@@ -1,11 +1,19 @@
 # HaloPress-Live2D
 
-HaloPress-Live2D 是一个面向 WordPress 的 Cubism 2 看板娘插件。它提供原生
+HaloPress-Live2D 是一个面向 WordPress 的 Live2D® Cubism 2 看板娘插件。它提供原生
 WordPress 设置页、前台挂件、常用对话和工具栏，但不附带任何人物模型或
 Live2D Cubism 运行时。
 
 > 本项目不是 Live2D Inc. 的官方产品，也未获得其认证或推荐。Live2D 和
 > Cubism 是其各自权利人的商标或注册商标。
+
+<p>
+  <img src="assets/images/live2d-logo.png" alt="Live2D" width="240">
+</p>
+
+**Powered by Live2D.** 本插件支持使用 Live2D® Cubism 2 技术制作的模型。
+Live2D® 及其标志是 Live2D Inc. 的注册商标。本项目对标志的使用遵循
+[Live2D 标志与商标使用指南](https://www.live2d.jp/zh-CHS/brand/)；标志本身不适用本项目的 GPL-3.0 许可证。
 
 ## 功能
 

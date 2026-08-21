@@ -18,4 +18,21 @@ jobs:
           test ! -e dist/live2d.min.js
           test ! -d src/CubismSdkForWeb-5-r.4
           ! find . -type f \( -name '*.moc' -o -name '*.moc3' -o -name '*.model3.json' -o -name '*.motion3.json' \) -print -quit | grep -q .
+      - name: Build and verify WordPress plugin archive
+        shell: bash
+        run: |
+          archive_sources=(
+            assets
+            includes
+            live2d-widget
+            halopress-live2d.php
+            uninstall.php
+            LICENSE
+            README.md
+            readme.txt
+            THIRD-PARTY-NOTICES.md
+          )
+          mkdir -p release
+          zip -q -r release/halopress-live2d.zip "${archive_sources[@]}"
+          python3 tools/verify-release.py release/halopress-live2d.zip
 

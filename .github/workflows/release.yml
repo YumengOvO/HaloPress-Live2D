@@ -18,14 +18,28 @@ jobs:
           node --check live2d-widget/widget.js
           find . -type f -name '*.php' -print0 | xargs -0 -n1 php -l
       - name: Build WordPress plugin archive
+        shell: bash
         run: |
-          mkdir -p release/halopress-live2d
-          cp -R assets includes live2d-widget release/halopress-live2d/
-          cp halopress-live2d.php uninstall.php LICENSE README.md readme.txt THIRD-PARTY-NOTICES.md release/halopress-live2d/
-          cd release
-          zip -r halopress-live2d.zip halopress-live2d
+          archive_sources=(
+            assets
+            includes
+            live2d-widget
+            halopress-live2d.php
+            uninstall.php
+            LICENSE
+            README.md
+            readme.txt
+            THIRD-PARTY-NOTICES.md
+          )
+          mkdir -p release
+          zip -q -r release/halopress-live2d.zip "${archive_sources[@]}"
+      - name: Verify WordPress plugin archive
+        run: python3 tools/verify-release.py release/halopress-live2d.zip
       - name: Publish GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${GITHUB_REF_NAME}" release/halopress-live2d.zip --generate-notes --title "HaloPress-Live2D ${GITHUB_REF_NAME}"
+        run: |
+          gh release create "${GITHUB_REF_NAME}" release/halopress-live2d.zip \
+            --title "HaloPress-Live2D ${GITHUB_REF_NAME}" \
+            --notes $'HaloPress-Live2D 是一个面向 WordPress 的 Live2D® Cubism 2 看板娘插件。\n\n主要功能：\n- WordPress 原生设置页面\n- 单模型 URL 配置\n- 位置、大小和常用对话设置\n- 一言、拍照、项目信息和关闭工具按钮\n- 默认桌面端启用、移动端关闭\n\n本插件不包含人物模型、第三方贴图、动作或 Live2D Cubism 运行时。'
 

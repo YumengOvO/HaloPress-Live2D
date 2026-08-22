@@ -119,7 +119,7 @@
 		if (config.hitokotoEnabled && config.hitokotoApiUrl) {
 			toolbar.appendChild(createToolButton('💬', labels.hitokoto || '一言', requestHitokoto));
 		}
-		toolbar.appendChild(createToolButton('▣', labels.photo || '拍照', takePhoto));
+		toolbar.appendChild(createToolButton('📸', labels.photo || '拍照', takePhoto));
 		toolbar.appendChild(createToolButton('i', labels.info || '项目信息', openProject));
 		toolbar.appendChild(createToolButton('×', labels.quit || '关闭', quit));
 

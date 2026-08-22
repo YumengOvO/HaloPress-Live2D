@@ -3,7 +3,7 @@
  * Plugin Name: HaloPress-Live2D
  * Plugin URI:  https://github.com/YumengOvO/HaloPress-Live2D
  * Description: Add a configurable Cubism 2 character widget to a WordPress site without bundling models or the Live2D runtime.
- * Version:     1.0.0
+ * Version:     1.0.1
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Author:      YumengOvO
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'HALOPRESS_LIVE2D_VERSION', '1.0.0' );
+define( 'HALOPRESS_LIVE2D_VERSION', '1.0.1' );
 define( 'HALOPRESS_LIVE2D_FILE', __FILE__ );
 define( 'HALOPRESS_LIVE2D_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HALOPRESS_LIVE2D_URL', plugin_dir_url( __FILE__ ) );

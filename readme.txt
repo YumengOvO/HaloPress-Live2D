@@ -3,7 +3,7 @@ Contributors: yumengovo
 Tags: live2d, cubism2, widget
 Requires at least: 6.4
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,6 +47,10 @@ browser. The optional Hitokoto API is contacted only when a visitor clicks its
 button. Widget state is stored locally in the visitor's browser.
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Replace the photo tool placeholder with a camera emoji.
 
 = 1.0.0 =
 
